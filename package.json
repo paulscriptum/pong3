@@ -4,7 +4,8 @@
   "description": "8BIT Pong Game",
   "scripts": {
     "dev": "npx serve .",
-    "start": "npx serve ."
+    "start": "npx serve .",
+    "build": "node scripts/verify-build.mjs"
   },
   "devDependencies": {
     "serve": "^14.2.0"
