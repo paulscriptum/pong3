@@ -97,8 +97,7 @@ const mascotPaths = [
   "/images/mascots/sad.svg"      // 10
 ];
 
-// Маскоты в исходниках чёрные — на поле рисуем белыми.
-const noInvertMascots = new Set();
+// Маскоты в исходниках тёмные — на чёрном поле рисуем через invert(1).
 const mascotSizeScale = { 5: 0.5 };
 mascotPaths.forEach((path, i) => {
   mascotImages[i] = new Image();
@@ -316,10 +315,7 @@ export class Renderer {
       
       ctx.globalAlpha = Math.min(1, m.scale * 1.5);
       
-      if (!noInvertMascots.has(m.imgIndex)) {
-        ctx.filter = "brightness(0) invert(1)";
-      }
-      
+      ctx.filter = "invert(1)";
       ctx.drawImage(img, m.x - drawW / 2, m.y - drawH / 2, drawW, drawH);
       
       ctx.filter = "none";
